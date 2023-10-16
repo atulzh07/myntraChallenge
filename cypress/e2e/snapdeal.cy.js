@@ -7,14 +7,14 @@ describe('test cases for myntra home furnishing', () => {
     beforeEach(() => {
         cy.visit(url);
     })
-    it('Test Case 001: Wishlist: User Not Authenticated; should see a login iframe', () => {
+    it('Test Case 001: Wishlist: Unauthenticated user; should see a login iframe', () => {
         cy.get(".categoryShortlist > .shortlist-icon-wrpr > .animated-icon > .sd-icon").as('wishlist');
         cy.get('@wishlist').should('have.length', 20);
         cy.get('@wishlist').first().click();
         cy.frameLoaded('#loginIframe');
         cy.iframe('#loginIframe').contains('Login Using');
     })
-    it("Test Case 002: Enter Pincode & Sort from Low to High", () => {
+    it("Test Case 002: Enter Pincode & Sort Price:Low to High", () => {
         cy.get('.pincode-enter > .sd-input').type('110001');
         cy.contains('Check').click();
         cy.get('.sort-selected').click();
@@ -30,7 +30,7 @@ describe('test cases for myntra home furnishing', () => {
             cy.get('.pdp-e-i-head').contains(productTitle);
         })
     })
-    it("Test Case 004: Purchase a Product: Check if an item is available for a location, add to cart", () => {
+    it("Test Case 004: Purchase a Product: Check if an item is available for a location, add it to the cart", () => {
         cy.get('.product-tuple-image > a').first().invoke('removeAttr', 'target').click();
         cy.get('#pincode-check').type('744303{enter}');
         cy.get('.no-deli-pin-code').contains('Item not available at this location');
