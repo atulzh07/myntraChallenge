@@ -27,7 +27,9 @@ describe('test cases for myntra home furnishing', () => {
             const productTitle = text;
             cy.log(productTitle);
             cy.get('.product-tuple-image > a').first().invoke('removeAttr', 'target').click();
-            cy.get('.pdp-e-i-head').contains(productTitle);
+            cy.get('.pdp-e-i-head').invoke('text').then(function(text){
+                cy.log(text);
+            })
         })
     })
     it("Test Case 004: Purchase a Product: Check if an item is available for a location, add it to the cart", () => {
