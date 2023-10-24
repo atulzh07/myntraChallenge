@@ -6,6 +6,9 @@ https://github.com/atulzh07/snapdeal_automation_challenge/assets/67971725/a3e38b
 
 
 
+![Uploading carbon (1).png…]()
+
+
 ## What Tools Did I Choose and Why?
 The test was created with Cypress using Javascript as a programming language. Cypress is easy to use, fast, and debug with a rich UI.
 
